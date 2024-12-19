@@ -31,7 +31,6 @@ async function createNewFileXLSX(formData) {
     sheet.cell('A13').value('Peso Bruto');
     sheet.cell('B13').value(formData.PesoBruto);
     sheet.cell('A14').value('NCM');
-    sheet.cell('B14').value(formData.NCM);
 
     // Opcional: Dar formato
     sheet.range('A1:B1').style('fill', 'CCCCCC');
@@ -58,7 +57,6 @@ const generateXML = (formData) => {
             .ele('PrecioTotal', formData.PrecioTotal).up()
             .ele('PesoNeto', formData.PesoNeto).up()
             .ele('PesoBruto', formData.PesoBruto).up()
-            .ele('NCM', formData.NCM).up()
         .end({ pretty: true });
 
     return xmlContent;;
