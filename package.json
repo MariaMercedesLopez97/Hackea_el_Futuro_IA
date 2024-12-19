@@ -1,0 +1,39 @@
+{
+  "name": "hackea_el_futuro_ia",
+  "version": "1.0.0",
+  "description":"Proyecto de registro de productos",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "build:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css",
+    "watch:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA/issues"
+  },
+  "homepage": "https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "nodemon": "^3.1.9",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5"
+  }
+}
