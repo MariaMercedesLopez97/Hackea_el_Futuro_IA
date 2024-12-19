@@ -4,25 +4,29 @@ const PORT = 3000
 const bodyParser = require('body-parser');
 const fs = require('fs'); // Para guardar el XML en un archivo
 
-const XMLGenerator = () => {
-    const [formData, setFormData] = useState({
-        clienteName: '',
-        clienteRuc: '',
-        clienteEmail: '',
-        ordenCompra: [{
-            numeroItem:'',
-            cantidadProducto: '',
-            codProducto: '',
-            NCM:'', // ncm: nomenclatura comun, clasificacion de los productos a nivel internacional
-            unidadMedida: '', // Puede ser unidades o cajas
-            descripcionProducto: '',
-            precioUnitario: '',
-            precioTotal:'',
-            pesoNeto: '', // Peso del producto sin embalage
-            pesoBruto:'' // Peso del producto con su embalage
-        }]
-    })
-}
+const xmlbuilder = require('xmlbuilder');
+
+const generateXML = (formData) => {
+    const xmlContent = xmlbuilder.create('OrdenCompra')
+        .ele('Cliente')
+            .ele('Nombre', formData.clienteName).up()
+            .ele('RUC', formData.clienteRuc).up()
+            .ele('Email', formData.clienteEmail).up()
+        .up()
+        .ele('Productos')
+        .ele('Producto')
+            .ele('NumeroItem', formData.NumeroItem).up()
+            .ele('Descripcion', formData.Descripcion).up()
+            .ele('Cantidad', formData.Cantidad).up()
+            .ele('PrecioUnitario', formData.PrecioUnitario).up()
+            .ele('PrecioTotal', formData.PrecioTotal).up()
+            .ele('PesoNeto', formData.PesoNeto).up()
+            .ele('PesoBruto', formData.PesoBruto).up()
+            .ele('NCM', formData.NCM).up()
+        .end({ pretty: true });
+
+    return xmlContent;;
+};
 
 
 
@@ -40,26 +44,7 @@ app.post('/generate-xml', (req, res) => {
     }
 
     // Generar contenido XML
-    const xmlContent = `
-<OrdenCompra>
-  <Cliente>
-    <Nombre>${clienteName}</Nombre>
-    <RUC>${clienteRuc}</RUC>
-    <Email>${clienteEmail}</Email>
-  </Cliente>
-  <Productos>
-    ${ordenCompra.map((item, index) => `
-    <Producto>
-      <NumeroItem>${item.numeroItem || index + 1}</NumeroItem>
-      <Descripcion>${item.descripcionProducto}</Descripcion>
-      <Cantidad>${item.cantidadProducto}</Cantidad>
-      <PrecioUnitario>${item.precioUnitario}</PrecioUnitario>
-      <PrecioTotal>${item.cantidadProducto * item.precioUnitario}</PrecioTotal>
-      <PesoNeto>${item.pesoNeto}</PesoNeto>
-      <PesoBruto>${item.pesoBruto}</PesoBruto>
-    </Producto>`).join('')}
-  </Productos>
-</OrdenCompra>`;
+    const xmlContent = generateXML(req.body)
 
     // Guardar en un archivo (opcional)
     fs.writeFileSync('orden_compra.xml', xmlContent);
