@@ -6,27 +6,7 @@ const fs = require('fs'); // Para guardar el XML en un archivo
 
 const xmlbuilder = require('xmlbuilder');
 
-const generateXML = (formData) => {
-    const xmlContent = xmlbuilder.create('OrdenCompra')
-        .ele('Cliente')
-            .ele('Nombre', formData.clienteName).up()
-            .ele('RUC', formData.clienteRuc).up()
-            .ele('Email', formData.clienteEmail).up()
-        .up()
-        .ele('Productos')
-        .ele('Producto')
-            .ele('NumeroItem', formData.NumeroItem).up()
-            .ele('Descripcion', formData.Descripcion).up()
-            .ele('Cantidad', formData.Cantidad).up()
-            .ele('PrecioUnitario', formData.PrecioUnitario).up()
-            .ele('PrecioTotal', formData.PrecioTotal).up()
-            .ele('PesoNeto', formData.PesoNeto).up()
-            .ele('PesoBruto', formData.PesoBruto).up()
-            .ele('NCM', formData.NCM).up()
-        .end({ pretty: true });
 
-    return xmlContent;;
-};
 
 
 
