@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orden de Compra - Logística</title>
+    <link href="output.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-blue-200 min-h-screen flex items-center justify-center p-4">
+    <div class="container mx-auto">
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden max-w-4xl mx-auto flex">
+            <!-- Imagen de camión -->
+            <div class="hidden md:block w-1/2 bg-cover bg-center" style="background-image: url('https://www.ubicalo.com.mx/wp-content/uploads/2020/05/original-bcb8dfae789303136afad728286b86fe.jpeg')">
+                <div class="h-full bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                    <div class="text-center text-white p-8">
+                        <h2 class="text-3xl font-bold mb-4">Logística de Transporte</h2>
+                        <p class="text-xl">Gestiona tus envíos de manera eficiente</p>
+                    </div>
+            <!-- Formulario -->
+            <div class="w-full md:w-1/2 p-8 bg-white">
+                <h1 class="text-3xl font-bold text-center text-blue-800 mb-6">Orden de Compra</h1>
+                
+                <form id="formularioProductos" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="clienteName" class="block text-sm font-medium text-gray-700 mb-2">Nombre del Cliente</label>
+                            <input 
+                                type="text" 
+                                id="clienteName" 
+                                name="clienteName" 
+                                required 
+                                class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                placeholder="Nombre completo"
+                            >
+                        </div>
+                        <div>
+                            <label for="clienteRuc" class="block text-sm font-medium text-gray-700 mb-2">RUC</label>
+                            <input 
+                                type="text" 
+                                id="clienteRuc" 
+                                name="clienteRuc" 
+                                required 
+                                class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                placeholder="Número de RUC"
+                            >
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="clienteEmail" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                        <input 
+                            type="email" 
+                            id="clienteEmail" 
+                            name="clienteEmail" 
+                            required 
+                            class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                            placeholder="ejemplo@correo.com"
+                        >
+                    </div>
+
+                    <div class="border-t border-blue-200 pt-4">
+                        <h2 class="text-xl font-semibold text-blue-800 mb-4">Detalles del Producto</h2>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label for="NumeroItem" class="block text-sm font-medium text-gray-700">Número de Item</label>
+                                <input 
+                                    type="number" 
+                                    id="NumeroItem" 
+                                    name="NumeroItem" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                            <div>
+                                <label for="Descripcion" class="block text-sm font-medium text-gray-700">Descripción</label>
+                                <input 
+                                    type="text" 
+                                    id="Descripcion" 
+                                    name="Descripcion" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                            <div>
+                                <label for="Cantidad" class="block text-sm font-medium text-gray-700">Cantidad</label>
+                                <input 
+                                    type="number" 
+                                    id="Cantidad" 
+                                    name="Cantidad" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 mt-4">
+                            <div>
+                                <label for="PrecioUnitario" class="block text-sm font-medium text-gray-700">Precio Unitario</label>
+                                <input 
+                                    type="number" 
+                                    id="PrecioUnitario" 
+                                    name="PrecioUnitario" 
+                                    step="0.01" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                            <div>
+                                <label for="PrecioTotal" class="block text-sm font-medium text-gray-700">Precio Total</label>
+                                <input 
+                                    type="number" 
+                                    id="PrecioTotal" 
+                                    name="PrecioTotal" 
+                                    step="0.01" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                            <div>
+                                <label for="NCM" class="block text-sm font-medium text-gray-700">NCM</label>
+                                <input 
+                                    type="text" 
+                                    id="NCM" 
+                                    name="NCM" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div>
+                                <label for="PesoNeto" class="block text-sm font-medium text-gray-700">Peso Neto (kg)</label>
+                                <input 
+                                    type="number" 
+                                    id="PesoNeto" 
+                                    name="PesoNeto" 
+                                    step="0.01" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                            <div>
+                                <label for="PesoBruto" class="block text-sm font-medium text-gray-700">Peso Bruto (kg)</label>
+                                <input 
+                                    type="number" 
+                                    id="PesoBruto" 
+                                    name="PesoBruto" 
+                                    step="0.01" 
+                                    required 
+                                    class="w-full px-4 py-2 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <button 
+                        type="submit" 
+                        class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 transform hover:scale-105 mt-4"
+                    >
+                        Generar Orden de Compra
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../main.js"></script>
+</body>
+</html>
