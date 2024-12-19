@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<OrdenCompra>
+  <Cliente>
+    <Nombre>Juan Pérez</Nombre>
+    <RUC>12345678901</RUC>
+    <Email>juan.perez@example.com</Email>
+  </Cliente>
+  <Productos>
+    <Producto>
+      <NumeroItem>1</NumeroItem>
+      <Descripcion>Producto A</Descripcion>
+      <Cantidad>10</Cantidad>
+      <PrecioUnitario>50</PrecioUnitario>
+      <PrecioTotal>500</PrecioTotal>
+      <PesoNeto>1</PesoNeto>
+      <PesoBruto>1.2</PesoBruto>
+    </Producto>
+  </Productos>
+</OrdenCompra>
