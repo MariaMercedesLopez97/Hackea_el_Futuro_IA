@@ -1,11 +1,13 @@
 {
   "name": "hackea_el_futuro_ia",
   "version": "1.0.0",
-  "description": "",
+  "description": "Proyecto de registro de productos",
   "main": "main.js",
-  "scripts": {
+"scripts": {
     "start": "node main.js",
     "dev": "nodemon main.js",
+    "build:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css",
+    "watch:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +34,9 @@
     "xmlbuilder": "^15.1.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.9",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5"
   }
 }

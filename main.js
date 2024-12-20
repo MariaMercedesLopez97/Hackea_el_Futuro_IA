@@ -22,14 +22,10 @@ const generateXML = (formData) => {
             .ele('PrecioTotal', formData.PrecioTotal).up()
             .ele('PesoNeto', formData.PesoNeto).up()
             .ele('PesoBruto', formData.PesoBruto).up()
-            .ele('NCM', formData.NCM).up()
         .end({ pretty: true });
 
     return xmlContent;;
 };
-
-
-
 
 // Middleware para parsear JSON
 app.use(bodyParser.json());
@@ -59,3 +55,45 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    const formularioProductos = document.getElementById('formularioProductos');
+
+    formularioProductos.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+
+        // Recoger datos del formulario
+        const nombreProducto = document.getElementById('nombreProducto').value;
+        const categoriaProducto = document.getElementById('categoriaProducto').value;
+        const precioProducto = document.getElementById('precioProducto').value;
+        const descripcionProducto = document.getElementById('descripcionProducto').value;
+
+        // Crear estructura XML
+        const xmlDoc = new XMLDocument();
+        const productoElement = xmlDoc.createElement('producto');
+        
+        const nombreElement = xmlDoc.createElement('nombre');
+        nombreElement.textContent = nombreProducto;
+        productoElement.appendChild(nombreElement);
+
+        const categoriaElement = xmlDoc.createElement('categoria');
+        categoriaElement.textContent = categoriaProducto;
+        productoElement.appendChild(categoriaElement);
+
+        const precioElement = xmlDoc.createElement('precio');
+        precioElement.textContent = precioProducto;
+        productoElement.appendChild(precioElement);
+
+        const descripcionElement = xmlDoc.createElement('descripcion');
+        descripcionElement.textContent = descripcionProducto;
+        productoElement.appendChild(descripcionElement);
+
+        xmlDoc.appendChild(productoElement);
+
+        // Convertir XML a string
+        const xmlString = new XMLSerializer().serializeToString(xmlDoc);
+        console.log(xmlString);
+
+        // Aquí podrías agregar lógica para enviar el XML a un backend
+        alert('XML generado con éxito');
+    });
+});
