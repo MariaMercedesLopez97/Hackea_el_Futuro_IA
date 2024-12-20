@@ -12,7 +12,10 @@ import logging
 
 # Cargar variables de entorno
 load_dotenv()
-openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Inicializar el cliente de OpenAI
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
 
 # Configurar logging
 logging.basicConfig(level=logging.INFO, 
@@ -122,27 +125,21 @@ class PedidoCompra(BaseModel):
 
 
 # Función para generar texto con IA
-def generate_email_body(cliente: ClienteDatos, compra: PedidoCompra) -> str:
-    prompt = f"""
-    Genera un correo formal para el cliente {cliente.nombre} con correo {cliente.mail}.
-    Incluye los detalles del pedido:
-    - Código: {compra.cod}
-    - Descripción: {compra.descripcion}
-    - Cantidad: {compra.cantidad}
-    - Precio Unitario: {compra.precioUnitario}
-    - Precio Total: {compra.precioTotal}
-    Agradece al cliente por su compra y menciónale que puede contactarnos si tiene alguna duda.
-    """
 
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=prompt,
-        max_tokens=150,
-        temperature=0.7
-    )
-
-    return response.choices[0].text.strip()
-
+def generate_email_body(cliente: ClienteDatos, compra: PedidoCompra):
+    try:
+        # Usar el nuevo método de generación de completaciones
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Eres un asistente que genera correos profesionales para confirmación de pedidos."},
+                {"role": "user", "content": f"Genera un correo para {cliente.nombre} sobre el pedido {compra.cod} con descripción: {compra.descripcion}"}
+            ]
+        )
+        return response.choices[0].message.content
+    except Exception as e:
+        logger.error(f"Error al generar correo con IA: {e}")
+        return "No se pudo generar el correo electrónico."
 
 # Función para crear un archivo Excel
 def create_excel_file(compra: PedidoCompra, cliente: ClienteDatos, filename: str):
