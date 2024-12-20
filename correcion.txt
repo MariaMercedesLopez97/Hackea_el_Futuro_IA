@@ -18,3 +18,52 @@ def generate_email_body(cliente: ClienteDatos, compra: PedidoCompra) -> str:
     )
 
     return response.choices[0].text.strip()
+
+
+
+
+
+    {
+  "name": "hackea_el_futuro_ia",
+  "version": "1.0.0",
+  "description": "Proyecto de registro de productos",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js",
+    "build:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css",
+    "watch:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css --watch",
+    "description": "La primera ruta Post, crea un XML es de prueba todavia con el formato que estamos queriendo.  Las cosas que debemos hacer es:   1) validar que no se repita ciertos valores.  2) Crear el front-end en el cual se carguen los campos necesarios  3) implementar una Base de datos con el registro de productos (mas adelante)  4) Implementacion de \"IA\":      -- Que funciones tendra?:      1) Enviar correos, con mensaje pre definido      2) Validacion de XML (Que lea el XML y valide los campos)",
+    "main": "main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA.git"
+  },
+  "keywords": [],
+  "author": "Emmnuel Ramos & Maria Mercedes Lopez",
+  "license": "penguin2024",
+  "bugs": {
+    "url": "https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA/issues"
+  },
+  "homepage": "https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA#readme",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "openai": "^4.77.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "xlsx-populate": "^1.21.0",
+    "xmlbuilder": "^15.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "nodemon": "^3.1.9",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.5"
+  }
+}

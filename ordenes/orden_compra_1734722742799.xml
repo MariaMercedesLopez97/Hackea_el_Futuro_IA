@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<OrdenCompra>
+  <Cliente>
+    <Nombre>Sebas Mingo</Nombre>
+    <RUC>5757758-8</RUC>
+    <Email>sebas_mingo@gmail.com</Email>
+  </Cliente>
+  <Productos>
+    <Producto>
+      <NumeroItem>8</NumeroItem>
+      <Descripcion>gaseosa</Descripcion>
+      <Cantidad>12</Cantidad>
+      <PrecioUnitario>0.24</PrecioUnitario>
+      <PrecioTotal>2.88</PrecioTotal>
+      <PesoNeto>0.13</PesoNeto>
+      <PesoBruto>0.14</PesoBruto>
+    </Producto>
+  </Productos>
+</OrdenCompra>

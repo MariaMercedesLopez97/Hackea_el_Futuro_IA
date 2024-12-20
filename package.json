@@ -8,8 +8,6 @@
     "dev": "nodemon main.js",
     "build:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css",
     "watch:css": "npx tailwindcss -i ./vistas/style.css -o ./vistas/output.css --watch",
-    "description": "La primera ruta Post, crea un XML es de prueba todavia con el formato que estamos queriendo.  Las cosas que debemos hacer es:   1) validar que no se repita ciertos valores.  2) Crear el front-end en el cual se carguen los campos necesarios  3) implementar una Base de datos con el registro de productos (mas adelante)  4) Implementacion de \"IA\":      -- Que funciones tendra?:      1) Enviar correos, con mensaje pre definido      2) Validacion de XML (Que lea el XML y valide los campos)",
-    "main": "main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

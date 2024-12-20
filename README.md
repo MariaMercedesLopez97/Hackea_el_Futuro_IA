@@ -1,20 +1,38 @@
-## Rutas:
- La primera ruta Post, crea un XML es de prueba todavia con el formato que estamos queriendo.
- Las cosas que debemos hacer es: 
- 1) validar que no se repita ciertos valores.
- 2) Crear el front-end en el cual se carguen los campos necesarios
- 3) implementar una Base de datos con el registro de productos (mas adelante)
- 4) Implementacion de "IA": 
-    -- Que funciones tendra?:
-     1) Enviar correos, con mensaje pre definido
-     2) Validacion de XML (Que lea el XML y valide los campos)
+# Hackea el Futuro IA - Sistema de Generación de Órdenes de Compra
 
-### Objetivo Final: 
-    QUE FUNCIONE!! JAJAJA
+## 📋 Descripción del Proyecto
 
-## Tarea para Meche
+Este proyecto es un sistema web para la generación de órdenes de compra, que crea simultáneamente archivos XML y Excel para un registro detallado de transacciones.
 
-1) Crear el front-end con los campos del formulario.
-2) Ajustar el archivo `main.js` si lo requieres. (No olvidarse del objetivo)
-3) Anotar los cambios que hiciste
-4) Opcional: Conectar la IA que mejor se adapte al proyecto
+## ✨ Características Principales
+
+- Generación de órdenes de compra
+- Creación automática de archivos XML y XLSX
+- Interfaz web simple y funcional
+- Almacenamiento de órdenes en carpeta dedicada
+
+## 🚀 Requisitos Previos
+
+- Node.js (v14 o superior)
+- npm (v6 o superior)
+
+## 🔧 Instalación
+
+1. Clonar el repositorio
+```bash
+git clone https://github.com/MariaMercedesLopez97/Hackea_el_Futuro_IA.git
+
+2. Instalar dependencias
+cd Hackea_el_Futuro_IA
+npm install
+
+3. Construir estilos de Tailwind (opcional)
+npm run build:css
+
+💻 Uso
+Iniciar el Servidor
+npm start
+
+El servidor estará disponible en http://localhost:3000
+
+📦 Estructura del Proyecto
