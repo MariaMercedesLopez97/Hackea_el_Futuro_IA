@@ -32,6 +32,8 @@ class PedidoCompra(BaseModel):
     cantidad: int
     precioUnitario: int
     precioTotal: int = 0
+    pesoneto: float
+    pesobruto: float
 
     @validator('precioTotal', always=True)
     def calculate_total(cls, value, values):
@@ -75,7 +77,9 @@ def create_excel_file(compra: PedidoCompra, cliente: ClienteDatos, filename: str
         "Descripción": [compra.descripcion],
         "Cantidad": [compra.cantidad],
         "Precio Unitario": [compra.precioUnitario],
-        "Precio Total": [compra.precioTotal]
+        "Precio Total": [compra.precioTotal],
+        "Peso Neto":[compra.pesoneto],
+        "Peso Bruto": [compra.pesobruto]
     }
 
     with pd.ExcelWriter(filename) as writer:
